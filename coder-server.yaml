@@ -1,0 +1,15 @@
+security:
+  secret: "7c46e02d-bb8a-4e41-a044-1e3675992117"
+
+paths:
+  instance_template: "/home/albert/tmp/prog/config.template"
+  instance_dir: "/home/albert/tmp/prog/config.template"
+  nginx_config: "/etc/nginx/fhgr-csc-redirects.conf"
+
+ports:
+  c:
+    start: 9000
+    end: 9050
+  e:
+    start: 9500
+    end: 9550
