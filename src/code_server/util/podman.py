@@ -26,7 +26,8 @@ def start_code_server(port):
     docker_cmd = DOCKER_TEMPLATE.render(
         config_dir=instance_dir,
         port=port,
-        sudo_password=CONFIG["security"]["suid_pwd"],
+        sudo_password=CONFIG["container"]["suid_pwd"],
+        hosts=CONFIG["container"]["hosts_file"],
         uid=UID,
         gid=GID,
     )

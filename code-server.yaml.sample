@@ -2,11 +2,14 @@ security:
   secret:
     c: "123"
     e: "321"
+
+container:
   suid_pwd: "987"
+  hosts_file: "/home/albert/template/hosts"
 
 paths:
-  instance_template: "/home/albert/config.template"
-  instance_dir: "/home/albert/config.template"
+  instance_template: "/home/albert/template/config.template"
+  instance_dir: "/home/albert/vm"
   nginx_config: "/home/albert/nginx.conf"
 
 ports:
