@@ -23,6 +23,7 @@ file_handler.setFormatter(
 )
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
+app.logger.setLevel(logging.INFO)
 
 nginx_port_url_mapping = nginx_config_parser(Path(CONFIG["paths"]["nginx_config"]))
 if not nginx_port_url_mapping:
