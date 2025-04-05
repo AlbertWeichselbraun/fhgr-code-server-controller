@@ -9,7 +9,9 @@ from code_server.util.config import load_config
 CONFIG = load_config()
 UID = os.getuid()
 GID = os.getgid()
-DOCKER_TEMPLATE = Template(Path(__file__).parent.parent / "templates" / "podman.sh")
+DOCKER_TEMPLATE = Template(
+    (Path(__file__).parent.parent / "templates" / "podman.sh").read_text()
+)
 
 
 def start_code_server(port):
