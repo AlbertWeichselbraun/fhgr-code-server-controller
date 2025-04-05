@@ -1,0 +1,1 @@
+docker run --rm -it --name=fhgr-code-server-{{port}} -e PUID={{uid}} -e PGID={{gid}} -e DISPLAY=:0 -e TZ=Europe/Zurich -e SUDO_PASSWORD={{sudo_password}} -e DEFAULT_WORKSPACE=/config/workspace -p {{port}}:8443 -v {{config_dir}}:/config fhgr-code-server

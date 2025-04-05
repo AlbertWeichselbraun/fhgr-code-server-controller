@@ -1,0 +1,18 @@
+security:
+  secret:
+    c: "123"
+    e: "321"
+  suid_pwd: "987"
+
+paths:
+  instance_template: "/home/albert/config.template"
+  instance_dir: "/home/albert/config.template"
+  nginx_config: "/home/albert/nginx.conf"
+
+ports:
+  c:
+    start: 17000
+    end: 17050
+  e:
+    start: 17500
+    end: 17550

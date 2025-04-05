@@ -1,3 +1,5 @@
 .idea/
 venv/
-pycache/
+__pycache__/
+code-server.yaml
+*.log
