@@ -3,6 +3,7 @@ code_server
 
 Copyrights 2025 by Albert Weichselbraun. All rights reserved.
 """
+
 import logging
 import sys
 from pathlib import Path
@@ -16,7 +17,10 @@ from code_server.util.port import PortManager
 app = Flask(__name__)
 CONFIG = load_config()
 
-file_handler = logging.FileHandler('controller.log')
+file_handler = logging.FileHandler("controller.log")
+file_handler.setFormatter(
+    logging.Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
+)
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
 
@@ -54,11 +58,13 @@ def create():
     # redirect, if the instance has already been created
     if not pairing in user_port_mapping:
         user_port_mapping[pairing] = port_manager.get_next_port(instance_type)
-        app.logger.info(f"Binding user {user_email} ({user_id}) to port {user_port_mapping[pairing]}.")
+        app.logger.info(
+            f"Binding user {user_email} ({user_id}) to port {user_port_mapping[pairing]}."
+        )
 
     port = user_port_mapping[pairing]
     return redirect(nginx_port_url_mapping[port])
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(port=5000)
