@@ -9,7 +9,7 @@ def test_config_parser():
     config_list = nginx_config_parser(NGINX_CONFIG)
     assert len(config_list) == 100
 
-    for path, port in config_list:
+    for  port, path in config_list.items():
         print(path, port)
         assert '/c/' in path or '/e/' in path
         if '/c/' in path:

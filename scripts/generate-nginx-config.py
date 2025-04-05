@@ -5,7 +5,7 @@ from uuid import uuid4
 
 from jinja2 import Template
 
-TEMPLATE_PATH = Path(__file__).parent.parent / "templates/nginx.conf"
+TEMPLATE_PATH = Path(__file__).parent.parent / "src/code_server/templates/nginx.conf"
 
 
 template = Template(TEMPLATE_PATH.read_text())
