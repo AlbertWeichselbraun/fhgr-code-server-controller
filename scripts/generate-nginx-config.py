@@ -12,9 +12,9 @@ template = Template(TEMPLATE_PATH.read_text())
 
 MAX_CLIENTS = 50
 CONFIG_GROUPS = {
-        'c': 9000,
-        'e': 9500,
-        }
+    "c": 9000,
+    "e": 9500,
+}
 
 for prefix, start_port in CONFIG_GROUPS.items():
     for port in range(start_port, start_port + MAX_CLIENTS):

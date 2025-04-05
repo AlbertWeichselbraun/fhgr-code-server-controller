@@ -1,9 +1,11 @@
 import yaml
 from pathlib import Path
 
-CONFIG_FILES = (Path('/etc/code-server.yaml'), 
-                Path('~/.code-server.yaml').expanduser(),
-                Path(__file__).parent.parent.parent.parent / 'code-server.yaml')
+CONFIG_FILES = (
+    Path("/etc/code-server.yaml"),
+    Path("~/.code-server.yaml").expanduser(),
+    Path(__file__).parent.parent.parent.parent / "code-server.yaml",
+)
 
 
 def load_config():
@@ -11,7 +13,7 @@ def load_config():
     for path in CONFIG_FILES:
         if path.exists():
             config_path = path
-            break   
+            break
     else:
         raise "No valid configuration file found."
 

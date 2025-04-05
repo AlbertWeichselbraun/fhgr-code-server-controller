@@ -7,4 +7,7 @@ CONFIG = load_config()
 
 
 course_id = input("Moodle course ID to authorized:")
-print("Authorization Code: " + get_authorization_key(CONFIG['security']['secret'], course_id))
+print(
+    "Authorization Code: "
+    + get_authorization_key(CONFIG["security"]["secret"], course_id)
+)
