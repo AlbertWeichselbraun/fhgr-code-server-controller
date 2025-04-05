@@ -6,6 +6,7 @@ security:
 container:
   suid_pwd: "987"
   hosts_file: "/home/albert/template/hosts"
+  resolve_file: "/home/albert/template/resolve.conf"
 
 paths:
   instance_template: "/home/albert/template/config.template"

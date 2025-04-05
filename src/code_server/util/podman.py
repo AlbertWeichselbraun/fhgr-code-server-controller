@@ -28,6 +28,7 @@ def start_code_server(port):
         port=port,
         sudo_password=CONFIG["container"]["suid_pwd"],
         hosts=CONFIG["container"]["hosts_file"],
+        resolve=CONFIG["container"]["resolve_file"],
         uid=UID,
         gid=GID,
     )
