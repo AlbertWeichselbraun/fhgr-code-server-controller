@@ -20,7 +20,7 @@ def start_code_server(port):
     """
     # setup working directory
     instance_dir = Path(f"{CONFIG['paths']['instance_dir']}.{port}")
-    copytree(CONFIG["paths"]["instance_template"], instance_dir, dirs_exist_ok=True)
+    copytree(CONFIG["paths"]["instance_template"], instance_dir, dirs_exist_ok=False)
 
     # create docker container
     docker_cmd = DOCKER_TEMPLATE.render(
@@ -30,10 +30,8 @@ def start_code_server(port):
         uid=UID,
         gid=GID,
     )
-    result = subprocess.run(
-        docker_cmd.split(), check=True, capture_output=True, text=True
-    )
-    print(result)
+    print(docker_cmd)
+    result = subprocess.run(docker_cmd.split())
 
 
 def stop_code_server(port):
@@ -42,11 +40,7 @@ def stop_code_server(port):
     """
     instance_dir = Path(f"{CONFIG['paths']['instance_dir']}.{port}")
     result = subprocess.run(
-        ["docker", "stop", f"fhgr-code-server-{port}"],
-        check=True,
-        capture_output=True,
-        text=True,
+        ["podman", "stop", f"fhgr-code-server-{port}"],
     )
-    print(result)
     if instance_dir.exists():
         rmtree(instance_dir)
