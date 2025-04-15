@@ -55,7 +55,7 @@ def create():
     ):
         return f"Invalid request key detected.", 400
 
-    pairing = (user_id, instance_type)
+    pairing = (user_id, moodle_course_id, instance_type)
     # redirect, if the instance has already been created
     if not pairing in user_port_mapping:
         user_port_mapping[pairing] = port_manager.get_next_port(instance_type)

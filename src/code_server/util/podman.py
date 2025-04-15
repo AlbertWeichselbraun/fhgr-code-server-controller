@@ -42,7 +42,7 @@ def stop_code_server(port):
     """
     instance_dir = Path(f"{CONFIG['paths']['instance_dir']}.{port}")
     result = subprocess.run(
-        ["podman", "stop", f"fhgr-code-server-{port}"],
+        ["podman", "kill", f"fhgr-code-server-{port}"],
     )
     if instance_dir.exists():
         rmtree(instance_dir)
